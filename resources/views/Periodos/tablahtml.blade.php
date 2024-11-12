@@ -2,7 +2,7 @@
 @isset($mensaje)
     <p>{{$mensaje}}</p>
 @endisset
-
+<H1>PERIODOS</H1>
 <a href="{{route('Periodos.create')}}" class="btn btn-dark mb-3" role="button">
     <i class="fas fa-plus"></i> Insertar
 </a>
@@ -11,7 +11,7 @@
     <table class="table table-hover table-striped">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
+                {{-- <th scope="col">ID</th> --}}
                 <th scope="col">Periodo</th>
                 <th scope="col">Descripcion Corta</th>
                 <th scope="col">Fecha de Inicio</th>
@@ -24,7 +24,7 @@
         <tbody>
             @foreach ($periodos as $periodo)
             <tr>
-                <td>{{ $periodo->idPeriodo }}</td>
+                {{-- <td>{{ $periodo->idPeriodo }}</td> --}}
                 <td>{{ $periodo->periodo }}</td>
                 <td>{{ $periodo->descCorta }}</td>
                 <td>{{ $periodo->fechaIni ? $periodo->fechaIni->format('Y-m-d') : 'N/A' }}</td>

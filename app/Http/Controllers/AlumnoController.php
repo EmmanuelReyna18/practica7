@@ -23,10 +23,16 @@ class AlumnoController extends Controller
     }
 
     public function index()
-    {
-        $alumnos= Alumno::paginate(5);
-        return view("Alumnos2/index",compact("alumnos"));
-    }
+{
+    // Realizar un join entre alumnos y carreras para ordenar por nombreCarrera
+    $alumnos = Alumno::join('carreras', 'alumnos.idCarrera', '=', 'carreras.idCarrera')
+        ->orderBy('carreras.nombreCarrera', 'asc') // Ordenar por nombreCarrera de la tabla carreras
+        ->select('alumnos.*') // Seleccionar todas las columnas de alumnos
+        ->paginate(5);
+
+    return view("Alumnos2.index", compact("alumnos"));
+}
+
 
     public function create()
     {
@@ -63,17 +69,17 @@ class AlumnoController extends Controller
 
   
     public function edit(Alumno $alumno)
-{   
-    // Obtener todas las carreras para mostrarlas en el dropdown
-    $carreras = Carrera::all();
-    $alumnos = Alumno::paginate(5);
-    
-    $accion = 'E';
-    $txtbtn = 'actualizar';
-    $des = '';
+    {   
+        // Obtener todas las carreras para mostrarlas en el dropdown
+        $carreras = Carrera::all();
+        $alumnos = Alumno::paginate(5);
+        
+        $accion = 'E';
+        $txtbtn = 'actualizar';
+        $des = '';
 
-    return view("Alumnos2.frm", compact('alumnos', 'alumno', 'accion', 'txtbtn', 'des', 'carreras'));
-}
+        return view("Alumnos2.frm", compact('alumnos', 'alumno', 'accion', 'txtbtn', 'des', 'carreras'));
+    }
 
 
   

@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Reticula;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Reticula;
+use App\Models\Carrera;
 
 class ReticulaSeeder extends Seeder
 {
@@ -13,6 +13,13 @@ class ReticulaSeeder extends Seeder
      */
     public function run(): void
     {
-        Reticula::factory(20)->create();
+        // Obtiene todas las carreras y crea una retícula para cada una
+        $carreras = Carrera::all();
+
+        foreach ($carreras as $carrera) {
+            Reticula::factory()->create([
+                'idCarrera' => $carrera->idCarrera,
+            ]);
+        }
     }
 }

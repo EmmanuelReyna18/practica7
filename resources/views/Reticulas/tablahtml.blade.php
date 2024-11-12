@@ -2,7 +2,7 @@
 @isset($mensaje)
     <p>{{$mensaje}}</p>
 @endisset
-
+<H1>RETICULAS</H1>
 <a href="{{route('Reticulas.create')}}" class="btn btn-dark mb-3" role="button">
     <i class="fas fa-plus"></i> Insertar
 </a>
@@ -11,7 +11,7 @@
     <table class="table table-hover table-striped"> <!-- Mantenido el estilo general -->
         <thead class="thead-dark"> <!-- Clase para el color negro en los <th> -->
             <tr>
-                <th scope="col">ID</th>
+                
                 <th scope="col">Descripción</th>
                 <th scope="col">Fecha Vigor</th>
                 <th scope="col">Carrera</th>
@@ -23,7 +23,7 @@
         <tbody>
             @foreach ($reticulas as $reticula)
                 <tr>
-                    <td scope="row">{{ $reticula->idReticula }}</td>
+                   
                     <td>{{ $reticula->descripcion }}</td>
                     <td>{{ $reticula->fechaEnVigor }}</td>
                     <td>{{ $reticula->carrera->nombreCarrera }}</td>

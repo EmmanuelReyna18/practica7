@@ -16,18 +16,64 @@
 
     {{-- CATALOGO --}}
     <li class="nav-item" role="presentation">
-        <a href="{{route('catalogo')}}" class="nav-link">catalogo</a>
+         <!-- Catálogo Dropdown -->
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="catalogoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Catálogo</a>
+
+        <ul class="dropdown-menu" aria-labelledby="catalogoDropdown">
+          <li><a class="dropdown-item" href="{{route('Periodos.index')}}">Periodos</a></li>
+          <li><a class="dropdown-item" href="{{ route('Plazas.index') }}">Plazas</a></li>
+          <li><a class="dropdown-item" href="{{ route('Puestos.index') }}">Puestos</a></li>
+          <li><a class="dropdown-item" href="{{route('Alumnos2.index')}}">Alumnos</a></li>
+          <li><a class="dropdown-item" href="{{route('Deptos.index')}}">Deptos.</a></li>
+          <li><a class="dropdown-item" href="{{route('Carreras.index')}}">Carreras</a></li>
+          <li><a class="dropdown-item" href="{{route('Reticulas.index')}}">Retículas</a></li>
+          <li><a class="dropdown-item" href="{{route('Materias.index')}}">Materias</a></li>
+          <li><a class="dropdown-item" href="{{route('MateriasA.index')}}">Materias Abiertas</a></li>
+          <li><a class="dropdown-item" href="{{route('PersonalPlazas.index')}}">Personal Plaza</a></li>
+          <li><a class="dropdown-item" href="{{route('Personal.index')}}">Personal</a>
+          <li><a class="dropdown-item" href="{{route('Edificios.index')}}">Edificios</a>
+          <li><a class="dropdown-item" href="{{route('Lugares.index')}}">Lugares</a>
+        </ul>
+      </div>
+      
+      
+    
+
     </li>
 
-    {{-- HORARIOS --}}
-    <li class="nav-item" role="presentation">
-        <a href="{{route('horarios')}}" class="nav-link">Horarios</a>
-    </li>
+    <!-- HORARIOS-->
+    <div class="nav-item dropdown">
+        <div></div>
+        <a class="nav-link dropdown-toggle" href="#" id="horariosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Horarios </a>
+            <div class="dropdown-menu">
+                <div class="d-flex">
+                        <li><a class="dropdown-item" href="#">Docentes</a></li>
+                        <li><a class="dropdown-item" href="#">Alumnos</a></li>
+                </div>
+            </div>
+    </div>
+    
 
-    {{-- PROYECTOS IND. --}}
-    <li class="nav-item" role="presentation">
-        <a href="{{route('proyectosInd')}}" class="nav-link">Proyectos Indivisduales </a>
-    </li>
+    <!-- PROYECTOS IND. -->
+<div class="nav-item dropdown">
+    <div></div>
+    <a class="nav-link dropdown-toggle" href="#" id="catalogoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Proyectos Ind.
+    </a>
+    <div class="dropdown-menu">
+        <div class="d-flex">
+            <li><a class="dropdown-item" href="#">Capacitación</a></li>
+            <li><a class="dropdown-item" href="#">Asesorías Doc.</a></li>
+            <li><a class="dropdown-item" href="#">Proyectos</a></li>
+            <li><a class="dropdown-item" href="#">Material Didáctico</a></li>
+            <li><a class="dropdown-item" href="#">Docencia e Inv</a></li>
+            <li><a class="dropdown-item" href="#">Asesorías Proyectos Ext.</a></li>
+        </div>
+    </div>
+</div>
 
     {{-- INSTRUMENTACION --}}
     <li class="nav-item" role="presentation">

@@ -1,8 +1,7 @@
 <?php
-
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Materia;
 use Illuminate\Database\Seeder;
 
 class MateriaSeeder extends Seeder
@@ -12,6 +11,7 @@ class MateriaSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // Crear 10 materias en total
+        Materia::factory()->count(10)->create();
     }
 }

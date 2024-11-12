@@ -1,32 +1,25 @@
 @extends('plantillas/plantilla2')
 
 {{-- CONTENIDO1 --}}
-{{-- SI LE QUITO EL 1 SE UITA LA TABLA Y SE PONE EL INSERTAR  --}}
+{{-- SI LE QUITO EL 1 SE UITA LA TABLA Y SE PONE EL INSERTAR --}}
 @section('contenido1')
-
     @include('Alumnos2/tablahtml')
-    
 @endsection
-
 
 {{-- CONTENIDO2 --}}
 @section('contenido2')
 
 @if ($accion == 'C')
-<h1>INSERTANDO</h1> 
+<h1>INSERTANDO</h1>
   <form action="{{route('Alumnos2.store')}}" method="POST">
-    
-
-  @elseif ($accion == 'E')
-  <h1>EDITANDO FRM</h1> 
+@elseif ($accion == 'E')
+  <h1>EDITANDO FRM</h1>
   <form action="{{route('Alumnos2.update',$alumno->noctrl)}}" method="POST">
+@elseif ($accion=='D')
+  <h1>PARA ELIMINAR</h1>
+  <form action="{{route('Alumnos2.destroy',$alumno)}}" method="POST">
+@endif
 
-    @elseif ($accion=='D')
-    <h1>PARA ELIMINAR</h1> 
-    <form action="{{route('Alumnos2.destroy',$alumno)}}" method="POST">
-    
-  @endif
-  
   @csrf
     <div class="row mb-3">
       <label for="noctrl" class="col-sm-3 col-form-label">Número de Control</label>
@@ -91,20 +84,26 @@
         </div>
       </div>
 
-      <select name="idCarrera" id="idCarrera">
-        @foreach ($carreras as $carrera)
-            <option value="{{$carrera->idCarrera}}"
+      {{-- Select de Carrera --}}
+      <div class="row mb-3">
+        <label for="idCarrera" class="col-sm-3 col-form-label">Carrera</label>
+        <div class="col-sm-9">
+          <select class="form-control" id="idCarrera" name="idCarrera" required {{$des}}>
+            @foreach ($carreras as $carrera)
+              <option value="{{$carrera->idCarrera}}"
                 @if($carrera->idCarrera == $alumno->idCarrera) selected @endif>
                 {{$carrera->nombreCarrera}}
-            </option>
-        @endforeach
-    </select>
-    
+              </option>
+            @endforeach
+          </select>
+          @error('idCarrera')
+            <p class="text-danger">Error en: {{$message}}</p>
+          @enderror
+        </div>
+      </div>
       
     <button type="submit" class="btn btn-primary">{{$txtbtn}}</button>
     
   </form>
 
 @endsection
-
-

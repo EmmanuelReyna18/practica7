@@ -42,7 +42,11 @@
         <a class="nav-link" href="{{route ('Carreras.index')}}">Carreras</a>
         <a class="nav-link" href="{{route ('Reticulas.index')}}">Retículas</a>
         <a class="nav-link" href="{{route ('Materias.index')}}">Materias</a>
+        <a class="nav-link" href="{{route ('MateriasA.index')}}">Materias Abiertas</a>
+        <a class="nav-link" href="#">Personal Plaza</a>
         <a class="nav-link" href="#">Personal</a>
+        <a class="nav-link" href="#">Edificios</a>
+        <a class="nav-link" href="#">Lugares</a>
        
     </nav>
 

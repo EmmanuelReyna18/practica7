@@ -1,12 +1,9 @@
 <?php
-
 namespace Database\Seeders;
 
-use App\Models\Depto;
 use App\Models\Alumno;
 use App\Models\Carrera;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AlumnoSeeder extends Seeder
 {
@@ -15,12 +12,14 @@ class AlumnoSeeder extends Seeder
      */
     public function run(): void
     {
-        
+        // Obtener las 5 carreras (puedes ajustarlo según lo que necesites)
+        $carreras = Carrera::all()->take(5); // Ajusta este número si quieres más o menos carreras
 
-        Depto::factory(3)->has(
-            Carrera::factory(5)->has(
-                Alumno::factory(3)
-            )
-        )->create();
+        // Asignar 5 alumnos por carrera
+        foreach ($carreras as $carrera) {
+            Alumno::factory(5)->create([
+                'idCarrera' => $carrera->idCarrera, // Asignar carrera a cada alumno
+            ]);
+        }
     }
 }

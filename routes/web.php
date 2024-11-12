@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PersonalPlaza;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeptoController;
 use App\Http\Controllers\PlazaController;
@@ -9,7 +10,12 @@ use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EdificioController;
+use App\Http\Controllers\LugarController;
+use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ReticulaController;
+use App\Http\Controllers\PersonalPlazaController;
+use App\Http\Controllers\MateriaAbiertaController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -223,8 +229,59 @@ Route::get('/inicio2', function () {
 
         Route::post('/Reticulas.destroy/{reticula}', [ReticulaController::class, 'destroy'])->name('Reticulas.destroy');// DESRTOY
         Route::post('/Reticulas.update/{reticula}', [ReticulaController::class, 'update'])->name('Reticulas.update');//UPDATE
+///////////////////////////////////////////    Personal      //////////////////////////////////////////////
+Route::get('/Personal.index', [PersonalController::class, 'index'])->name('Personal.index');    // INDEX
+
+Route::get('/Personal.create', [PersonalController::class, 'create'])->name('Personal.create'); // CREATE
+Route::post('/Personal.store', [PersonalController::class, 'store'])->name('Personal.store');       
+
+Route::get('/Personal.edit/{personal}', [PersonalController::class, 'edit'])->name('Personal.edit');       // EDIT
+Route::get('/Personal.show/{personal}', [PersonalController::class, 'show'])->name('Personal.show');       // VER
+
+Route::post('/Personal.destroy/{personal}', [PersonalController::class, 'destroy'])->name('Personal.destroy');// DESRTOY
+Route::post('/Personal.update/{personal}', [PersonalController::class, 'update'])->name('Personal.update');//UPDATE
+
+///////////////////////////////////////////    Personal PLAZAS     //////////////////////////////////////////////
+Route::get('/PersonalPlazas.index', [PersonalPlazaController::class, 'index'])->name('PersonalPlazas.index');    // INDEX
+
+Route::get('/PersonalPlazas.create', [PersonalPlazaController::class, 'create'])->name('PersonalPlazas.create'); // CREATE
+Route::post('/PersonalPlazas.store', [PersonalPlazaController::class, 'store'])->name('PersonalPlazas.store');       
+
+Route::get('/PersonalPlazas.edit/{personalPlaza}', [PersonalPlazaController::class, 'edit'])->name('PersonalPlazas.edit');       // EDIT
+Route::get('/PersonalPlazas.show/{personalPlaza}', [PersonalPlazaController::class, 'show'])->name('PersonalPlazas.show');       // VER
+
+Route::post('/PersonalPlazas.destroy/{personalPlaza}', [PersonalPlazaController::class, 'destroy'])->name('PersonalPlazas.destroy');// DESRTOY
+Route::post('/PersonalPlazas.update/{personalPlaza}', [PersonalPlazaController::class, 'update'])->name('PersonalPlazas.update');//UPDATE
+
+///////////////////////////////////////////    Edificio      //////////////////////////////////////////////
+Route::get('/Edificios.index', [EdificioController::class, 'index'])->name('Edificios.index');    // INDEX
+
+Route::get('/Edificios.create', [EdificioController::class, 'create'])->name('Edificios.create'); // CREATE
+Route::post('/Edificios.store', [EdificioController::class, 'store'])->name('Edificios.store');       
+
+Route::get('/Edificios.edit/{edificio}', [EdificioController::class, 'edit'])->name('Edificios.edit');       // EDIT
+Route::get('/Edificios.show/{edificio}', [EdificioController::class, 'show'])->name('Edificios.show');       // VER
+
+Route::post('/Edificios.destroy/{edificio}', [EdificioController::class, 'destroy'])->name('Edificios.destroy');// DESRTOY
+Route::post('/Edificios.update/{edificio}', [EdificioController::class, 'update'])->name('Edificios.update');//UPDATE
+
+///////////////////////////////////////////    LUGARES      //////////////////////////////////////////////
+Route::get('/Lugares.index', [LugarController::class, 'index'])->name('Lugares.index');    // INDEX
+
+Route::get('/Lugares.create', [LugarController::class, 'create'])->name('Lugares.create'); // CREATE
+Route::post('/Lugares.store', [LugarController::class, 'store'])->name('Lugares.store');       
+
+Route::get('/Lugares.edit/{lugar}', [LugarController::class, 'edit'])->name('Lugares.edit');       // EDIT
+Route::get('/Lugares.show/{lugar}', [LugarController::class, 'show'])->name('Lugares.show');       // VER
+
+Route::post('/Lugares.destroy/{lugar}', [LugarController::class, 'destroy'])->name('Lugares.destroy');// DESRTOY
+Route::post('/Lugares.update/{lugar}', [LugarController::class, 'update'])->name('Lugares.update');//UPDATE
+
+
 
     //TUTORIAS
+
+    Route::get('/MateriasA.index', [MateriaAbiertaController::class, 'index'])->name('MateriasA.index');       // INDEX
        
 
         Route::get('/capacitacion',function (){
@@ -241,7 +298,7 @@ Route::get('/inicio2', function () {
     })->middleware(['auth', 'verified'])->name('tutorias');
 
 
-
+ 
 
 
 Route::get('/dashboard', function () {

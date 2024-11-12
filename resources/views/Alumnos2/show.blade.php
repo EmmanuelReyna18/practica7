@@ -7,7 +7,6 @@
     
 @endsection
 
-
 {{-- CONTENIDO2 --}}
 @section('contenido2')
 <h1>VER TDOOS LOS DATOS</h1>

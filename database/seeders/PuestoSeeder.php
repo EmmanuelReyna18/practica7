@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Puesto;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PuestoSeeder extends Seeder
 {
@@ -13,6 +12,14 @@ class PuestoSeeder extends Seeder
      */
     public function run(): void
     {
-        Puesto::factory(20)->create();
+        // Tipos de puesto que quieres crear
+        $tiposPuestos = ['Docente', 'Direccion', 'Administrativo', 'No Docente', 'Auxiliar'];
+
+        // Crear 3 puestos para cada tipo
+        foreach ($tiposPuestos as $tipo) {
+            Puesto::factory()->count(3)->create([
+                'tipo' => $tipo,
+            ]);
+        }
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Alumno extends Model
 {
-    /** @use HasFactory<\Database\Factories\AlumnoFactory> */
+    
        use HasFactory;
 
        public function carrera():BelongsTo{

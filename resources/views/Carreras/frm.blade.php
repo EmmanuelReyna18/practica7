@@ -38,15 +38,7 @@
   @endif
   
   @csrf
-    {{-- <div class="row mb-3">
-      <label for="idCarrera" class="col-sm-3 col-form-label">Id Carrera</label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" id="idCarrera" name="idCarrera" value="{{old('idCarrera',$carrera->idCarrera)}}" {{$des}}>
-        @error('idCarrera')
-        <p class="text-danger">Error en: {{$message}}</p>
-        @enderror
-      </div>
-    </div> --}}
+  
     
     <div class="row mb-3">
       <label for="nombreCarrera" class="col-sm-3 col-form-label">Nombre Carrera</label>
@@ -78,14 +70,18 @@
         </div>
       </div>
 
-      <select name="idDepto" id="idDepto">
-        @foreach ($deptos as $depto)
-            <option value="{{ $depto->idDepto }}"
-                @if($depto->idDepto == $carrera->idDepto) selected @endif>
+      <div class="row mb-3">
+        <label for="idDepto" class="col-sm-3 col-form-label">Departamento</label>
+        <div class="col-sm-9">
+          <select name="idDepto" id="idDepto" class="form-control" {{ $des }}>
+            @foreach ($deptos as $depto)
+              <option value="{{ $depto->idDepto }}" {{ $depto->idDepto == old('idDepto', $carrera->idDepto ?? '') ? 'selected' : '' }}>
                 {{ $depto->nombreDepto }}
-            </option>
-        @endforeach
-      </select>
+              </option>
+            @endforeach
+          </select>
+        </div>
+      </div>
     
       
     <button type="submit" class="btn btn-primary">{{$txtbtn}}</button>

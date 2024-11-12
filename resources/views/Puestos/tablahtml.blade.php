@@ -4,7 +4,7 @@
 @isset($mensaje)
     <p>{{$mensaje}}</p>
 @endisset
-
+<h1>PUESTOS</h1>
 <a href="{{route('Puestos.create')}}" class="btn btn-dark mb-3" role="button">
     <i class="fas fa-plus"></i> Insertar
 </a>
@@ -12,7 +12,7 @@
     <table class="table table-hover table-striped">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
+                {{-- <th scope="col">ID</th> --}}
                 {{-- <th scope="col">Id Plaza</th> --}}
                 <th scope="col">Nombre</th>
                 <th scope="col">Tipo</th>
@@ -25,7 +25,7 @@
             @foreach ($puestos as $puesto)
             <tr>
                
-                <td>{{ $puesto->idPuesto }}</td>
+                {{-- <td>{{ $puesto->idPuesto }}</td> --}}
                 <td>{{ $puesto->nombrePuesto }}</td>
                 <td>{{ $puesto->tipo }}</td>
                 <td>

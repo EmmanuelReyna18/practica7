@@ -45,7 +45,7 @@ public function __construct(){
     public function store(Request $request)
     {
         // var_dump($request)
-        
+         
        $val= $request->validate($this->val);
        $val['idCarrera'] = fake()->bothify("????####");
         Carrera::create($val);
@@ -71,7 +71,7 @@ public function __construct(){
     $carreras = Carrera::Paginate(5);
     $accion = 'E';
     $txtbtn = 'actualizar';
-    $deptos = Depto::all(); // Cambiado a minúsculas
+    $deptos = Depto::all(); 
     $des = '';
     return view("Carreras.frm", compact('carreras', 'carrera', 'accion', 'txtbtn', 'des', 'deptos'));
 }
@@ -80,7 +80,6 @@ public function __construct(){
   
     public function update(Request $request, Carrera $carrera)
     {   
-        //LO QUE SE DA VALIDADO SE GRABA
         $val= $request->validate($this->val);
         $carrera->update($val);
         return redirect()->route('Carreras.index');

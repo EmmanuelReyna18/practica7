@@ -4,7 +4,7 @@
 @isset($mensaje)
     <p>{{$mensaje}}</p>
 @endisset
-
+ <h1>PLAZAS</h1>
 <a href="{{route('Plazas.create')}}" class="btn btn-dark mb-3" role="button">
     <i class="fas fa-plus"></i> Insertar
 </a>

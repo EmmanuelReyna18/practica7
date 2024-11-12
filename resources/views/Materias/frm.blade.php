@@ -58,17 +58,7 @@
     </div>
 </div>
 
-<!-- Campo para Nivel -->
-<div class="row mb-3">
-    <label for="nivel" class="col-sm-3 col-form-label">Nivel</label>
-    <div class="col-sm-9">
-        <input type="text" class="form-control" id="nivel" name="nivel" 
-               value="{{ old('nivel', $materia->nivel ?? '') }}" {{$des}}>
-        @error('nivel')
-        <p class="text-danger">Error en: {{$message}}</p>
-        @enderror
-    </div>
-</div>
+
 
 <!-- Campo para NombreMediano -->
 <div class="row mb-3">
@@ -94,17 +84,51 @@
     </div>
 </div>
 
-<!-- Campo para Modalidad -->
+<!-- Campo para Nivel -->
 <div class="row mb-3">
-    <label for="modalidad" class="col-sm-3 col-form-label">Modalidad</label>
+    <label for="nivel" class="col-sm-3 col-form-label">Nivel</label>
     <div class="col-sm-9">
-        <input type="text" class="form-control" id="modalidad" name="modalidad" 
-               value="{{ old('modalidad', $materia->modalidad ?? '') }}" {{$des}}>
-        @error('modalidad')
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="nivel" id="nivel1" value="L" {{ old('nivel', $materia->nivel) == 'L' ? 'checked' : '' }} {{$des}}>
+            <label class="form-check-label" for="nivel1">Licenciatura</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="nivel" id="nivel2" value="M" {{ old('nivel', $materia->nivel) == 'M' ? 'checked' : '' }} {{$des}}>
+            <label class="form-check-label" for="nivel2">Maestria</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="nivel" id="nivel3" value="D" {{ old('nivel', $materia->nivel) == 'D' ? 'checked' : '' }} {{$des}}>
+            <label class="form-check-label" for="nivel3">Doctorado</label>
+        </div>
+        @error('nivel')
         <p class="text-danger">Error en: {{$message}}</p>
         @enderror
     </div>
 </div>
+
+
+  <!-- Campo para Modalidad -->
+  <div class="row mb-3">
+    <label for="modalidad" class="col-sm-3 col-form-label">Modalidad</label>
+    <div class="col-sm-9">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="modalidad" id="modalidad1" value="M" {{ old('modalidad', $materia->modalidad) == 'M' ? 'checked' : '' }} {{$des}}>
+            <label class="form-check-label" for="modalidad1">Mixta</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="modalidad" id="modalidad2" value="L" {{ old('modalidad', $materia->modalidad) == 'L' ? 'checked' : '' }} {{$des}}>
+            <label class="form-check-label" for="modalidad2">Línea</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="modalidad" id="modalidad3" value="P" {{ old('modalidad', $materia->modalidad) == 'P' ? 'checked' : '' }} {{$des}}>
+            <label class="form-check-label" for="modalidad3">Presencial</label>
+        </div>
+        @error('modalidad')
+        <p class="text-danger">Error en: {{$message}}</p>
+        @enderror
+    </div>
+  </div>
+
 
 
 <!-- Seleccionar Retícula -->
@@ -124,10 +148,25 @@
         @enderror
     </div>
 </div>
+<!-- Campo para Semestre -->
+<div class="row mb-3">
+    <label for="semestre" class="col-sm-3 col-form-label">Semestre</label>
+    <div class="col-sm-9">
+        <select name="semestre" id="semestre" class="form-control" {{ $des }}>
+            <option value="">-- Seleccione un Semestre --</option>
+            @foreach (['semestre 1', 'semestre 2', 'semestre 3', 'semestre 4', 'semestre 5', 'semestre 6', 'semestre 7', 'semestre 8', 'semestre 9'] as $sem)
+                <option value="{{ $sem }}" {{ old('semestre', $materia->semestre) == $sem ? 'selected' : '' }}>{{ $sem }}</option>
+            @endforeach
+        </select>
+        @error('semestre') 
+        <p class="text-danger">Error en: {{$message}}</p>
+        @enderror
+    </div>
+</div>
 
 
 <!-- Botón de envío -->
-<button type="submit" class="btn btn-primary">Grabar</button>
+<button type="submit" class="btn btn-primary">{{ $txtbtn }}</button>
 
 </form>
 

@@ -90,10 +90,18 @@
       <p class="text-danger">Error en: {{$message}}</p>
       @enderror
   </div>
+  <!-- Semestre -->
+  <div class="row mb-3">
+    <label for="semestre" class="col-sm-3 col-form-label">Semestre</label>
+    <div class="col-sm-9">
+        <p>{{ $materia->semestre }}</p>
+    </div>
+  </div>
 
-       
-      <button type="submit" class="btn btn-danger">Confirma la Eliminacion</button>
-      <a href="{{route('Carreras.index')}}" class="btn btn-primary">Regresar</a>
+        
+       {{-- Botones de acción --}}
+  <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+  <a href="{{ route('Materias.index') }}" class="btn btn-primary">Regresar</a>
     
   </form>
 

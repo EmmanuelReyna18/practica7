@@ -5,7 +5,7 @@
 @isset($mensaje)
     <p>{{$mensaje}}</p>
 @endisset
-
+<H1>CARRERAS</H1>
 <a href="{{route('Carreras.create')}}" class="btn btn-dark mb-3" role="button">
     <i class="fas fa-plus"></i> Insertar
     
@@ -15,7 +15,7 @@
         <thead class="thead-dark">
             <tr>
 
-                <th scope="col">Id</th>
+                
                 <th scope="col">Nombre Carrera</th>
                 <th scope="col">Nombre Mediano</th>
                 <th scope="col">Nombre Corto</th>
@@ -28,7 +28,7 @@
         <tbody>
             @foreach ($carreras as $carrera)
             <tr>
-                <td>{{ $carrera->idCarrera }}  </td>
+                {{-- <td>{{ $carrera->idCarrera }}  </td> --}}
                 <td>{{ $carrera->nombreCarrera }}  </td>
                 <td>{{ $carrera->nombreMediano }}</td>
                 <td>{{ $carrera->nombreCorto }}</td>

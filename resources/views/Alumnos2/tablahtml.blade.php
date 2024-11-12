@@ -5,7 +5,7 @@
 @isset($mensaje)
     <p>{{$mensaje}}</p>
 @endisset
-
+<H1>ALUMNOS</H1>
 <a href="{{route('Alumnos2.create')}}" class="btn btn-dark mb-3" role="button">
     <i class="fas fa-plus"></i> Insertar
     
@@ -34,7 +34,7 @@
                 <td>{{ $alumno->apellidoP }}</td>
                 <td>{{ $alumno->apellidoM }}</td>
                 <td>{{ $alumno->sexo }}</td>
-                <td>{{ $alumno->carrera->nombreCarrera ?? 'N/A' }}</td> <!-- Aquí mostramos la carrera -->
+                <td>{{ $alumno->carrera->nombreCarrera ?? 'N/A' }}</td> 
                 <td>
                     <a href="{{route('Alumnos2.edit', $alumno->noctrl)}}" class="btn btn-success">
                         <i class="fas fa-edit"></i> Editar

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Carrera extends Model
-{
+{ 
     /** @use HasFactory<\Database\Factories\CarreraFactory> */
     use HasFactory;
     // alumnos
@@ -16,13 +16,17 @@ class Carrera extends Model
         return $this->hasMany(Alumno::class,'idCarrera');
     }
     
-  protected $fillable =['idCarrera','nombreCarrera','nombreMediano','nombreCorto','idDepto'];
+  protected $fillable =['idCarrera',
+        'nombreCarrera',
+        'nombreMediano',
+        'nombreCorto',
+        'idDepto'];
 
   //depto
     public function depto():BelongsTo{
         return $this->belongsTo(Depto::class,'idDepto','idDepto');
     }
-    protected $primaryKey= 'idCarrera'; //relacion de laravel id
+    protected $primaryKey= 'idCarrera'; 
     protected $casts = ['idCarrera'=>'string']; 
     public $incrementing = false; //
 

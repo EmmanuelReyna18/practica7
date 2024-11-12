@@ -2,7 +2,7 @@
 @isset($mensaje)
     <p>{{$mensaje}}</p>
 @endisset
-
+<H1>DEPARTAMENTOS</H1>
 <a href="{{route('Deptos.create')}}" class="btn btn-dark mb-3" role="button">
     <i class="fas fa-plus"></i> Insertar
 </a>

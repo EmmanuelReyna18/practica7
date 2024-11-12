@@ -20,6 +20,8 @@ public function __construct(){
         'nombreMediano'   => ['required'],
         'nombreCorto'   => ['required'],
         'modalidad'   => ['required'],
+        'semestre'   => ['required'],
+
         //FK
         'idReticula'       => ['required', 'exists:reticulas,idReticula'],
       
@@ -27,9 +29,14 @@ public function __construct(){
 }
 
 
-    public function index()
+public function index()
 {
-    $materias = Materia::paginate(5);
+    // Realizar un join entre materias y reticulas para ordenar por semestre
+    $materias = Materia::join('reticulas', 'materias.idReticula', '=', 'reticulas.idReticula')
+        ->orderBy('materias.semestre', 'asc') // Ordenar por semestre de la tabla materias
+        ->select('materias.*') // Seleccionar todas las columnas de materias
+        ->paginate(5); // Paginación
+
     return view('Materias.index', compact('materias'));
 }
 

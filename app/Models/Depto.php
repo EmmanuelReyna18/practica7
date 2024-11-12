@@ -20,7 +20,7 @@ class Depto extends Model
  
      // Agrega los campos que se pueden asignar masivamente, incluyendo idDepto
      protected $fillable = [
-         'idDepto',  // Asegúrate de incluir este campo aquí
+         'idDepto',  
          'nombreDepto',
          'nombreMediano',
          'nombreCorto',

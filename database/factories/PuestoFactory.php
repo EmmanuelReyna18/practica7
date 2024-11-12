@@ -16,7 +16,7 @@ class PuestoFactory extends Factory
      */
     public function definition(): array
     {
-        $tipos=array('Docente','Director','Administrativo');
+        $tipos=array('Docente','Direccion','Administrativo','No Docente','Auxiliar');
         return [
             'idPuesto' => fake()->bothify("???####"),
             'nombrePuesto' => fake()->jobTitle(),

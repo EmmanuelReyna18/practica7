@@ -14,7 +14,7 @@ class DeptoController extends Controller
 
     public function __construct(){
         $this->val=[
-            'idDepto'       =>['required'],
+            // 'idDepto'       =>['required'],
             'nombreDepto'    =>['required','min:3'],
             'nombreMediano' =>['required'],
             'nombreCorto' =>['required'],
@@ -43,6 +43,8 @@ class DeptoController extends Controller
     public function store(Request $request)
     {
         $val= $request->validate($this->val);
+        $val['idDepto'] = fake()->bothify("????####");
+        
         Depto::create($val);
         return redirect()->route('Deptos.index')->with("mensaje",'se inserto correctamente.');
     }
