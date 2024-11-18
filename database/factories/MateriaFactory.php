@@ -17,7 +17,7 @@ class MateriaFactory extends Factory
                     'Cálculo Diferencial' => ['nombreMediano' => 'Cálc. Dif.', 'nombreCorto' => 'CD'],
                 ],
                 'semestre 2' => [
-                    'Cálculo Integral' => ['nombreMediano' => 'Cálc. Int.', 'nombreCorto' => 'CI'],
+                    'Cálculo Integral' => ['nombreMediano' => 'Cálculo Integral.', 'nombreCorto' => 'CI'],
                     'Programación Orientada a Objetos' => ['nombreMediano' => 'Prog. OO', 'nombreCorto' => 'POO'],
                     'Álgebra Lineal' => ['nombreMediano' => 'Álg. Lin.', 'nombreCorto' => 'AL'],
                 ],
@@ -49,7 +49,7 @@ class MateriaFactory extends Factory
                 'semestre 8' => [
                     'Programación Lógica y Funcional' => ['nombreMediano' => 'Prog. Lóg. Func.', 'nombreCorto' => 'PLF'],
                     'Programación Móvil con Lenguaje Oficial' => ['nombreMediano' => 'Prog. Móvil Leng. Of.', 'nombreCorto' => 'PMLO'],
-                    'Taller de Investigación II' => ['nombreMediano' => 'T. Inv. II', 'nombreCorto' => 'TI2'],
+                    'Taller de Investigación II' => ['nombreMediano' => 'T. Inv. II', 'nombreCorto' => 'TII'],
                 ],
                 'semestre 9' => [
                     'Residencia Profesional' => ['nombreMediano' => 'Res. Prof.', 'nombreCorto' => 'RP'],
@@ -72,19 +72,19 @@ class MateriaFactory extends Factory
                 ],
                 'semestre 4' => [
                     'Procesos de Fabricación' => ['nombreMediano' => 'Proc. Fab.', 'nombreCorto' => 'PF'],
-                    'Estadística Inferencial II' => ['nombreMediano' => 'Est. Inf. II', 'nombreCorto' => 'EI2'],
+                    'Estadística Inferencial II' => ['nombreMediano' => 'Est. Inf. II', 'nombreCorto' => 'EII'],
                 ],
                 'semestre 5' => [
                     'Gestión de Costos' => ['nombreMediano' => 'Gest. Costos', 'nombreCorto' => 'GC'],
                     'Administración de Proyectos' => ['nombreMediano' => 'Adm. Proy.', 'nombreCorto' => 'AP'],
                 ],
                 'semestre 6' => [
-                    'Taller de Investigación I' => ['nombreMediano' => 'T. Inv. I', 'nombreCorto' => 'TI1'],
+                    'Taller de Investigación I' => ['nombreMediano' => 'T. Inv. I', 'nombreCorto' => 'TI'],
                     'Simulación' => ['nombreMediano' => 'Sim.', 'nombreCorto' => 'S'],
                 ],
                 'semestre 7' => [
                     'Planeación Financiera' => ['nombreMediano' => 'Plan. Fin.', 'nombreCorto' => 'PF'],
-                    'Taller de Investigación II' => ['nombreMediano' => 'T. Inv. II', 'nombreCorto' => 'TI2'],
+                    'Taller de Investigación II' => ['nombreMediano' => 'T. Inv. II', 'nombreCorto' => 'TII'],
                 ],
                 'semestre 8' => [
                     'Seminario de Competitividad' => ['nombreMediano' => 'Sem. Comp.', 'nombreCorto' => 'SC'],

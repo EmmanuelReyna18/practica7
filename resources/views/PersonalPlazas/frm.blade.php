@@ -29,22 +29,24 @@
   @csrf
 
   <!-- Campo idPersonal -->
-  <div class="row mb-3">
-    <label for="idPersonal" class="col-sm-3 col-form-label">ID Personal</label>
-    <div class="col-sm-9">
-      <select class="form-control" id="idPersonal" name="idPersonal" {{ $des }}>
-        @foreach ($personales as $personal)
-          <option value="{{ $personal->idPersonal }}" 
-            {{ old('idPersonal', $personalPlaza->idPersonal ?? '') == $personal->idPersonal ? 'selected' : '' }}>
-            {{ $personal->nombre }}
-          </option>
-        @endforeach
+  <!-- Campo Personal -->
+<div class="row mb-3">
+  <label for="idPersonal" class="col-sm-3 col-form-label">Personal Asociado</label>
+  <div class="col-sm-9">
+      <select class="form-control" id="idPersonal" name="idPersonal" {{ $des ?? '' }}>
+          @foreach ($personales as $personal)
+              <option value="{{ $personal->idPersonal }}" 
+                  {{ old('idPersonal', $grupo->idPersonal ?? '') == $personal->idPersonal ? 'selected' : '' }}>
+                  {{ $personal->nombrePersonal }}
+              </option>
+          @endforeach
       </select>
       @error('idPersonal')
-        <p class="text-danger">Error en: {{ $message }}</p>
+          <p class="text-danger">Error en: {{ $message }}</p>
       @enderror
-    </div>
   </div>
+</div>
+
 
   <!-- Campo idPlaza -->
   <div class="row mb-3">

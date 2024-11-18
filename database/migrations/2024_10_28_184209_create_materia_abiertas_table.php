@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('idMateria');
             $table->string('idPeriodo');
 
-            
             $table->timestamps();
 
             $table->foreign('idMateria')->references('idMateria')->on('materias');
@@ -32,5 +31,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('materia_abiertas');
+        
     }
 };

@@ -11,7 +11,7 @@ class MateriaSeeder extends Seeder
      */
     public function run(): void
     {
-        // Crear 10 materias en total
-        Materia::factory()->count(10)->create();
+        // Crear 10 materias en total 
+        Materia::factory()->count(15)->create();
     }
 }

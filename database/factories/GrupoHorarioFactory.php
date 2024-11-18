@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Grupo;
+use App\Models\Lugar;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +11,16 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class GrupoHorarioFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    public function definition()
     {
         return [
-            //
+            'idGrupoHorario' => $this->faker->unique()->bothify('#####'),
+            'dia' => $this->faker->dayOfWeek(),
+            'hora' => $this->faker->time('H:i'), // Hora aleatoria
+
+            // Claves foráneas
+            'idGrupo' => Grupo::inRandomOrder()->first()->idGrupo ?? Grupo::factory()->create()->idGrupo, // Relación con Grupo
+            'idLugar' => Lugar::inRandomOrder()->first()->idLugar ?? Lugar::factory()->create()->idLugar, // Relación con Lugar
         ];
     }
 }

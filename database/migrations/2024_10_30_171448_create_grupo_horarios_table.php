@@ -12,8 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('grupo_horarios', function (Blueprint $table) {
-            $table->id();
+            $table->string('idHorarios')->primary();
+            $table->string("dia", 10);
+            $table->tinyInteger('hora');
+           
+      
+
+            $table->string('idGrupo',15);
+            $table->foreign('idGrupo')->references('idGrupo')->on('grupos');
+            $table->string('idLugar',15);
+            $table->foreign('idLugar')->references('idLugar')->on('lugars');
+          
+
             $table->timestamps();
+
+            $table->unique(['idGrupo','dia', 'hora','idLugar']);
+            
         });
     }
 

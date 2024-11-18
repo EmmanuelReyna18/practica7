@@ -30,11 +30,13 @@
           <li><a class="dropdown-item" href="{{route('Carreras.index')}}">Carreras</a></li>
           <li><a class="dropdown-item" href="{{route('Reticulas.index')}}">Retículas</a></li>
           <li><a class="dropdown-item" href="{{route('Materias.index')}}">Materias</a></li>
-          <li><a class="dropdown-item" href="{{route('MateriasA.index')}}">Materias Abiertas</a></li>
+          {{-- <li><a class="dropdown-item" href="{{route('MateriasA.index')}}">Materias Abiertas</a></li> --}}
           <li><a class="dropdown-item" href="{{route('PersonalPlazas.index')}}">Personal Plaza</a></li>
           <li><a class="dropdown-item" href="{{route('Personal.index')}}">Personal</a>
           <li><a class="dropdown-item" href="{{route('Edificios.index')}}">Edificios</a>
           <li><a class="dropdown-item" href="{{route('Lugares.index')}}">Lugares</a>
+          <li><a class="dropdown-item" href="{{route('Grupos.index')}}">Grupo</a>
+          {{-- <li><a class="dropdown-item" href="{{route('AsignacionGrupos.index')}}">AsignacionGrupos</a> --}}
         </ul>
       </div>
       

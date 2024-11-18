@@ -1,5 +1,6 @@
 @extends('Inicio2')
-@section('contenido1')<div class="row">
+@section('contenido1')
+<div class="row">
     <div class="col-10">
         <h3>Apertuda de Materias</h3>
     </div>
@@ -8,23 +9,23 @@
         {{session("idPeriodo")}}
         {{session('idCarrera')}}
         <form action="{{route('MateriasA.index')}}" method="get">
-            <select name="idperiodo" id="idperiodo" onchange="this.form.submit()">
+            <select name="idPeriodo" id="idPeriodo" onchange="this.form.submit()">
                 <option value="-1">Seleccione el periodo</option>
                 @foreach ($periodos as $periodo )
-                <option value="{{$periodo->id}}" @if($periodo->id == session('idPeriodo'))
+                <option value="{{$periodo->idPeriodo}}" @if($periodo->idPeriodo == session('idPeriodo'))
                     {{ "selected" }}
                     @endif
-                    >{{$periodo->id}} {{ $periodo->periodo }}</option>
+                    >{{$periodo->idPeriodo}} {{ $periodo->idPeriodo }}</option>
                 @endforeach
 
             </select><br>
-            <select name="idcarrera" id="idcarrera" onchange="this.form.submit()">
+            <select name="idCarrera" id="idCarrera" onchange="this.form.submit()">
                 <option value="-1">Seleccione la carrera</option>
                 @foreach ($carreras as $carr )
-                <option value="{{$carr->id}}" @if($carr->id == session('idCarrera'))
+                <option value="{{$carr->idCarrera}}" @if($carr->idCarrera == session('idCarrera'))
                     {{ "selected" }}
                     @endif
-                    >{{$carr->id}} {{$carr->nombreCarrera }}</option>
+                    >{{$carr->idCarrera}} {{$carr->nombreCarrera }}</option>
                 @endforeach
             </select>
         </form>
@@ -39,14 +40,14 @@
             @if($carrera->count() and session('idPeriodo') != "-1")
             @foreach ( $carrera[0]->reticulas[0]->materias as $materia )
             <input type="checkbox" 
-                    name="m{{$materia->id}}" 
-                    value="{{$materia->id}}" 
-                    onchange="this.form.submit()"
-                   @if ( $ma->firstWhere('materia_id',$materia['id']))
+                    name="m{{$materia->idMateria}}" 
+                    value="{{$materia->idMateria}}" 
+                    onchange="enviar(this)"
+                    @if ( $ma->firstWhere('idMateria',$materia['idMateria']))
                         {{"checked"}}
-                    @endif > 
+                    @endif>
             {{$materia->id}}
-            {{$materia->nombreCorto}}<br>
+            {{$materia->nombrecorto}}<br>
             @endforeach
             @endif
         </form>
@@ -62,3 +63,4 @@
         }
 </script>
 @endsection
+   

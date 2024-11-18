@@ -11,6 +11,7 @@ use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EdificioController;
+use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\LugarController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ReticulaController;
@@ -98,6 +99,10 @@ Route::get('/inicio2', function () {
             return view('docentes');
         })->middleware(['auth', 'verified'])->name('docentes');
 
+        Route::get('/AsignacionGrupos',function (){
+            return view('AsignacionGrupos');
+        })->middleware(['auth', 'verified'])->name('AsignacionGrupos');
+
         Route::get('/alumnos',function (){
             return view('alumnos');
         })->middleware(['auth', 'verified'])->name('Halumnos');
@@ -155,6 +160,17 @@ Route::get('/inicio2', function () {
             
         Route::post('/Plazas.destroy/{plaza}', [PlazaController::class, 'destroy'])->name('Plazas.destroy');// DESRTOY
         Route::post('/Plazas.update/{plaza}', [PlazaController::class, 'update'])->name('Plazas.update');//UPDATE
+
+        ///////////////////////////////////////////    GRUPOS      //////////////////////////////////////////////
+        Route::get('/Grupos.index', [GrupoController::class, 'index'])->name('Grupos.index');    // INDEX
+    
+        Route::get('/Grupos.create', [GrupoController::class, 'create'])->name('Grupos.create'); // CREATE
+        Route::post('/Grupos.store', [GrupoController::class, 'store'])->name('Grupos.store');       
+        Route::get('/Grupos.edit/{grupo}', [GrupoController::class, 'edit'])->name('Grupos.edit');       // EDIT
+        Route::get('/Grupos.show/{grupo}', [GrupoController::class, 'show'])->name('Grupos.show');       // VER
+            
+        Route::post('/Grupos.destroy/{plaza}', [GrupoController::class, 'destroy'])->name('Grupos.destroy');// DESRTOY
+        Route::post('/Grupos.update/{plaza}', [GrupoController::class, 'update'])->name('Grupos.update');//UPDATE
 
 
 ///////////////////////////////////////////    PUESTO      //////////////////////////////////////////////
